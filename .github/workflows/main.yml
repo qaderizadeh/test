@@ -1,7 +1,7 @@
 on: push
 jobs:
   first-job:
-    runs-on: my-ubuntu
+    runs-on: self-hosted
     steps:
       - run: cat /etc/os-release
       - run: curl http://ip-api.com
