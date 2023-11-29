@@ -7,4 +7,6 @@ jobs:
       - run: curl http://ip-api.com
       - run: pwd
       - run: whoami
+      - run: docker run --name postgres -e POSTGRES_PASSWORD=${{ secrets.APIKEY }} -d postgres
+      - run: docker inspect postgres
     
