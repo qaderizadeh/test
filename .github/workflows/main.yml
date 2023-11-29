@@ -1,9 +1,8 @@
 on: push
 jobs:
   first-job:
-    runs-on: ubuntu-latest
+    runs-on: my-ubuntu
     steps:
       - run: cat /etc/os-release
-      - run: node --version
-      - run: npm --version
+      - run: curl http://ip-api.com
     
