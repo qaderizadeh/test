@@ -2,9 +2,9 @@ on: push
 jobs:
   first-job:
     runs-on: ubuntu-latest
+    env:
+      PASSWORD: ${{ secrets.APIKEY }}
     steps:
-      - env:
-        PASSWORD: ${{ secrets.APIKEY }}
       - run: cat /etc/os-release
       - run: curl http://ip-api.com
       - run: pwd
