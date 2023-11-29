@@ -1,0 +1,9 @@
+on: push
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: cat /etc/os-release
+      - run: node --version
+      - run: npm --version
+    
