@@ -1,9 +1,10 @@
 on: push
 jobs:
   first-job:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - run: cat /etc/os-release
       - run: curl http://ip-api.com
       - run: pwd
+      - run: whoami
     
