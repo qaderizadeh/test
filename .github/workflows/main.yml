@@ -5,6 +5,7 @@ jobs:
     env:
       PASSWORD: ${{ secrets.APIKEY }}
     steps:
+      - run: ls -al
       - run: cat /etc/os-release
       - run: curl http://ip-api.com
       - run: pwd
