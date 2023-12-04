@@ -7,8 +7,6 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - run: | 
-              cat << EOF > test.log
-              $MYVAR
-              EOF
-              cat test.log
+              echo $MYVAR > test.tmp
+              cat test.tmp
     
