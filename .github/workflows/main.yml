@@ -6,5 +6,9 @@ jobs:
       MYVAR: ${{ vars.MYVAR }}
     steps:
       - uses: actions/checkout@master
-      - run: echo "$MYVAR"
+      - run: | 
+              cat << EOF > test.log
+              $MYVAR
+              EOF
+              cat test.log
     
