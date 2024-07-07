@@ -9,5 +9,5 @@ jobs:
       - run: | 
               echo $MYVAR > test.tmp
               cat test.tmp
-              ls
+              docker run -itd --name alpine-new --network mynet alpine
     
