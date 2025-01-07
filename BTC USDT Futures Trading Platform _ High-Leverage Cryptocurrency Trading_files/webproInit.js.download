@@ -1,0 +1,14 @@
+window.apmPlus("init",{
+    aid:1000030,
+    token: 'aed06a4a51ae474ba2bb4b41ac71609e',
+    pid: 'ap-1000030-webpro',
+    release: '1.0.0',
+    env: 'production', 
+    plugins: {
+        pageview: false,
+        jsError: true,
+        resourceError: true
+    },
+    domain: 'https://apmplus.ap-southeast-1.volces.com'
+  });
+window.apmPlus("start");

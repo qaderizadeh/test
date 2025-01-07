@@ -1,0 +1,39 @@
+@font-face {
+  font-weight: normal;
+  font-family: HarmonyOs;
+  src: url('./HarmonyOS_Sans_Medium.woff2') format('woff2'); /* chromeã€firefoxã€operaã€Safari, Android, iOS 4.2+ */
+  font-display: swap;
+}
+
+@font-face {
+  font-weight: bold;
+  font-family: HarmonyOs;
+  src: url('./HarmonyOS_Sans_Bold.woff2') format('woff2'); /* chromeã€firefoxã€operaã€Safari, Android, iOS 4.2+ */
+  font-display: swap;
+}
+@font-face {
+  font-weight: thin;
+  font-family: HarmonyOs;
+  src: url('./HarmonyOS_Sans_Regular.woff2') format('woff2'); /* chromeã€firefoxã€operaã€Safari, Android, iOS 4.2+ */
+  font-display: swap;
+}
+
+@font-face {
+  font-weight: normal;
+  font-family: HarmonyOsTC;
+  src: url('./HarmonyOS_Sans_TC_Medium.woff2') format('woff2'); /* chromeã€firefoxã€operaã€Safari, Android, iOS 4.2+ */
+  font-display: swap;
+}
+
+@font-face {
+  font-weight: bold;
+  font-family: HarmonyOsTC;
+  src: url('./HarmonyOS_Sans_TC_Bold.woff2') format('woff2'); /* chromeã€firefoxã€operaã€Safari, Android, iOS 4.2+ */
+  font-display: swap;
+}
+@font-face {
+  font-weight: thin;
+  font-family: HarmonyOsTC;
+  src: url('./HarmonyOS_Sans_TC_Regular.woff2') format('woff2'); /* chromeã€firefoxã€operaã€Safari, Android, iOS 4.2+ */
+  font-display: swap;
+}
