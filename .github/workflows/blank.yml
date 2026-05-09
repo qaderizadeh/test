@@ -18,7 +18,7 @@ jobs:
       
       - name: Create test.txt file
         run: |
-          echo "this is a test file" > test.txt
+          echo "this is a test file. this is added later!" > test.txt
       
       - name: Commit and push the file
         run: |
