@@ -1,29 +1,22 @@
-name: Create Test File
+name: Test Artifact Upload
 
 on:
-  push:
-    branches: [ main, master ]
-  workflow_dispatch:  # Allows manual trigger
+  workflow_dispatch:  # Manual trigger only
 
 jobs:
-  create-file:
+  create-and-upload:
     runs-on: ubuntu-latest
     
-    permissions:
-      contents: write  # Needed to push to the repo
-    
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      
       - name: Create test.txt file
         run: |
-          echo "this is a test file. this is added later!" > test.txt
+          echo "this is a test file" > test.txt
+          echo "File created successfully!"
+          cat test.txt
       
-      - name: Commit and push the file
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add test.txt
-          git diff --staged --quiet || git commit -m "Add test.txt file"
-          git push
+      - name: Upload as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-test-file
+          path: test.txt
+          retention-days: 7  # Will be deleted after 7 days
