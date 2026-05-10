@@ -1,22 +1,31 @@
-name: Test Artifact Upload
+name: Create Test File
 
 on:
-  workflow_dispatch:  # Manual trigger only
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:  # Allows manual trigger
 
 jobs:
-  create-and-upload:
+  create-file:
     runs-on: ubuntu-latest
     
+    permissions:
+      contents: write  # Needed to push to the repo
+    
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
       - name: Create test.txt file
         run: |
           echo "this is a test file" > test.txt
-          echo "File created successfully!"
-          cat test.txt
+          wget https://vscode.download.prss.microsoft.com/dbazure/download/stable/8b640eef5a6c6089c029249d48efa5c99adf7d51/code_1.119.0-1778006717_amd64.deb
       
-      - name: Upload as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: my-test-file
-          path: test.txt
-          retention-days: 7  # Will be deleted after 7 days
+      - name: Commit and push the file
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add test.txt
+          git add code_1.119.0-1778006717_amd64.deb
+          git diff --staged --quiet || git commit -m "Add test.txt and code file"
+          git push
