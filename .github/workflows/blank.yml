@@ -19,13 +19,15 @@ jobs:
       - name: Create test.txt file
         run: |
           echo "this is a test file" > test.txt
-          wget https://vscode.download.prss.microsoft.com/dbazure/download/stable/8b640eef5a6c6089c029249d48efa5c99adf7d51/code_1.119.0-1778006717_amd64.deb
+          wget https://vscode.download.prss.microsoft.com/dbazure/download/stable/974500e64f0d1cfdf7c9821a2a51c2cb3bf0e561/code_1.119.1-1778521423_amd64.deb
+
+          split -b 100M code_1.119.1-1778521423_amd64.deb "file-part-"
       
       - name: Commit and push the file
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add test.txt
-          git add code_1.119.0-1778006717_amd64.deb
-          git diff --staged --quiet || git commit -m "Add test.txt and code file"
+          git add file-part*
+          git diff --staged --quiet || git commit -m "Add files"
           git push
