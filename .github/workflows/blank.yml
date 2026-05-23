@@ -1,33 +1,12 @@
-name: Create Test File
+name: Simple Request
 
 on:
-  push:
-    branches: [ main, master ]
-  workflow_dispatch:  # Allows manual trigger
+  workflow_dispatch:
 
 jobs:
-  create-file:
+  make-request:
     runs-on: ubuntu-latest
-    
-    permissions:
-      contents: write  # Needed to push to the repo
-    
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      
-      - name: Create test.txt file
+      - name: Make a simple request
         run: |
-          echo "this is a test file" > test.txt
-          wget https://vscode.download.prss.microsoft.com/dbazure/download/stable/974500e64f0d1cfdf7c9821a2a51c2cb3bf0e561/code_1.119.1-1778521423_amd64.deb
-
-          split -b 100M code_1.119.1-1778521423_amd64.deb "file-part-"
-      
-      - name: Commit and push the file
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add test.txt
-          git add file-part*
-          git diff --staged --quiet || git commit -m "Add files"
-          git push
+          curl https://bridge.chbkn.run/?msg=from-github
